@@ -1,9 +1,67 @@
 // 27. Create a function that will receive an array of numbers as argument and will return a new array with distinct elements
-var bai27 = function
+function distinctArray(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (result.indexOf(arr[i]) === -1) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+console.log(distinctArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3]));
 
 
 // 28. Calculate the sum of first 100 prime numbers and return them in an array
+
+function isPrime(n) {
+    if (n < 2) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function sumOfFirst100PrimeNumbers() {
+    let sum = 0;
+    let count = 0;
+    let i = 2;
+    let result = [];
+    while (count < 100) {
+        if (isPrime(i)) {
+            sum += i;
+            result.push(i);
+            count++;
+        }
+        i++;
+    }
+    return result;
+}
+console.log(sumOfFirst100PrimeNumbers());
+
+
+
+
 // 29. Print the distance between the first 100 prime numbers
+
+function distanceBetweenFirst100PrimeNumbers() {
+    let result = [];
+    let previous = 2;
+    for (let i = 3; i < 1000; i++) {
+        if (isPrime(i)) {
+            result.push(i - previous);
+            previous = i;
+        }
+    }
+    return result;
+}
+console.log(distanceBetweenFirst100PrimeNumbers());
+
+
+
 // 30. Create a function that will add two positive numbers of indefinite size. The numbers
 // are received as strings and the result should be also provided as string.
 // 31. Create a function that will return the number of words in a text
